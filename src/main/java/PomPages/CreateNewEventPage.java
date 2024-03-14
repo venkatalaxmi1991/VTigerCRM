@@ -1,68 +1,52 @@
 package PomPages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import genericLibraries.WebDriverUtility;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.support.FindBy;
+	import org.openqa.selenium.support.PageFactory;
 
-public class CreateNewEventPage {
+	public class CreateNewEventPage {
 
-
-	//Declaration
-
-		@FindBy(xpath="//b[text()='Create To Do']")
+		//Declaration
+		@FindBy(xpath = "//b[text()='Create To Do']")
 		private WebElement pageHeader;
-		
-	
+
 		@FindBy(name="subject")
 		private WebElement subjectTF;
-			
-		
-		
+
 		@FindBy(id="jscal_field_date_start")
 		private WebElement startDateTF;
-		
-		
-		
+
 		@FindBy(id="jscal_field_due_date")
-		private WebElement finalDateTF;
-			
-		
-		
-		@FindBy(xpath="//input[@value='  Save']")
-		private WebElement saveButtonTF;
-			
-		
-		
-		
-	
-			
-//		Initialization
-		
-		public CreateNewEventPage(WebDriver driver)
-		{
-		PageFactory.initElements(driver,this);
-		
+		private WebElement endDateTF;
+
+		@FindBy(xpath = "//input[@value= '  Save']")
+		private WebElement saveButton;
+
+		//Initialization
+		public CreateNewEventPage(WebDriver driver) {
+			PageFactory.initElements(driver, this);
 		}
-		
-		
-//		Utilization
-		
-		public String getPageHeader()
-		{
+
+		//Utilization
+		public String getPageHeader() {
 			return pageHeader.getText();
 		}
-		
-		
-	public void setSubject(String subject)
-	{
-		subjectTF.sendKeys(subject);
-	}
 
-public void setStartDate(String date)
-{
-	startDateTF.sendKeys(date);
-}
-}
+		public void setSubject(String subject) {
+			subjectTF.sendKeys(subject);
+		}
+
+		public void setStartDate(String date) {
+			startDateTF.sendKeys(date);
+		}
+
+		public void setEndDate(String date) {
+			endDateTF.sendKeys(date);
+		}
+
+		public void clickSave() {
+			saveButton.click();
+		}
+	}

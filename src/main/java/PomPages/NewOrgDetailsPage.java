@@ -5,44 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NewOrgDetailsPage
-{
+public class NewOrgDetailsPage {
 
-@FindBy(xpath="//span[@class='dvHeaderText']"))
-private WebElement pageHeader;
+	//Declaration
+	@FindBy(xpath = "//span[@class='dvHeaderText']")
+	private WebElement pageHeader;
 
+	@FindBy(xpath = "//a[@class='hdrLink']")
+	private WebElement orgLink;
 
+	//Initialization
+	public NewOrgDetailsPage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
 
-		@FindBy(xpath="//a[@class='hdrLink']")
-		private WebElement orgLink;
-		
-		
-		
-			
-//		Initialization
-		
-		public NewOrgDetailsPage(WebDriver driver)
-		{
-		PageFactory.initElements(driver,this);
-		
-		}
-		
-		
-//		Utilization
-		
-		public String getPageHeader()
-		{
-			return pageHeader.getText();
-		}
-		
-		
-		public void clickOrgLink()
-		{
-			orgLink.click();
-		}
+	//Utilization
+	public String getPageHeader() {
+		return pageHeader.getText();
+	}
+
+	public void clickOrgLink() {
+		orgLink.click();
+	}
 }
-		
-		
-
-
-	

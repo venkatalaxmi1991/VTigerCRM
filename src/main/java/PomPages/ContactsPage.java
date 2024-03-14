@@ -1,63 +1,38 @@
 package PomPages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ContactsPage {
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.support.FindBy;
+	import org.openqa.selenium.support.PageFactory;
 
-//	Declaration
-	
-	
-	
-	@FindBy(xpath="//a[@class='hdrLink']")
-	private WebElement pageHeader;
-	
-	
-	
+	public class ContactsPage {
 
-	@FindBy(xpath="//img[@alt='Create Contact...']")
-	private WebElement plusButton;
-	
-	
-	
+		// Declaration
+		@FindBy(xpath = "//a[@class='hdrLink']")
+		private WebElement pageHeader;
 
-	@FindBy(xpath="//table[@class='lvt small']/tbody/tr[last()]/td[4]/a")
-	private WebElement newOrgLink ;
-	
-	
-//	Initialization
-	
-	public  ContactsPage(WebDriver driver)
-	{
-	PageFactory.initElements(driver,this);
-	
+		@FindBy(xpath = "//img[@alt='Create Contact...']")
+		private WebElement plusButton;
+
+		@FindBy(xpath = "//table[@class='lvt small']/tbody/tr[last()]/td[4]/a")
+		private WebElement newContactLink;
+
+		// Initialization
+		public ContactsPage(WebDriver driver) {
+			PageFactory.initElements(driver, this);
+		}
+
+		// Utilization
+		public String getPageHeader() {
+			return pageHeader.getText();
+		}
+
+		public void clickPlusButton() {
+			plusButton.click();
+		}
+
+		public String getNewContactName() {
+			return newContactLink.getText();
+		}
 	}
-	
-	
-	
-//	Utilization
-	
-	public String getPageHeader()
-	{
-		return pageHeader.getText();
-	}
-	
-	
-	public void clickPlusButton()
-	{
-		
-	
-		plusButton.click();
-	}
-
-	public String getNewOrgName()
-	{
-		return newOrgLink.getText();
-	}
-}
-	
-	
-	
-

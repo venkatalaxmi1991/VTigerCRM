@@ -1,63 +1,37 @@
 package PomPages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.support.FindBy;
+	import org.openqa.selenium.support.PageFactory;
 
-public class OrganizationPage {
+	public class OrganizationPage {
 
-//	Declaration
-	
-	
-	
-	@FindBy(xpath="//a[@class='hdrLink']")
-	private WebElement pageHeader;
-	
-	
-	
+		//Declaration
+		@FindBy(xpath = "//a[@class='hdrLink']")
+		private WebElement pageHeader;
 
-	@FindBy(xpath="//img[@alt='Create Organization...']")
-	private WebElement plusButton;
-	
-	
-	
+		@FindBy(xpath = "//img[@alt='Create Organization...']")
+		private WebElement plusButton;
 
-	@FindBy(xpath="//table[@class='lvt small']/tbody/tr[last()]/td[3]/a")
-	private WebElement newOrgLink ;
-	
-	
-//	Initialization
-	
-	public OrganizationPage (WebDriver driver)
-	{
-	PageFactory.initElements(driver,this);
-	
+		@FindBy(xpath = "//table[@class='lvt small']/tbody/tr[last()]/td[3]/a")
+		private WebElement newOrgLink;
+
+		//Initialization
+		public OrganizationPage(WebDriver driver) {
+			PageFactory.initElements(driver, this);
+		}
+
+		//Utilization
+		public String getPageHeader() {
+			return pageHeader.getText();
+		}
+
+		public void clickPlusButton() {
+			plusButton.click();
+		}
+
+		public String getNewOrgName() {
+			return newOrgLink.getText();
+		}
 	}
-	
-	
-	
-//	Utilization
-	
-	public String getPageHeader()
-	{
-		return pageHeader.getText();
-	}
-	
-	
-	public void clickPlusButton()
-	{
-		
-	
-		plusButton.click();
-	}
-
-	public String getNewOrgName()
-	{
-		return newOrgLink.getText()
-	}
-}
-	
-	
-	
-
